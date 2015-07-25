@@ -2,6 +2,7 @@ class Particle {
   float x;
   float y;
   PVector vector;
+  float rotation;
   color colour;  //heh
   float life;
   
@@ -9,8 +10,9 @@ class Particle {
     this.x = x;
     this.y = y;
     this.vector = vector;
+    this.rotation = random(-0.01, 0.01);
     this.colour = colour;    
-    this.life = random(40,70);
+    this.life = random(30, 60);
   }
   
   boolean dead() {
@@ -20,6 +22,7 @@ class Particle {
   void update() {
     x += vector.x;
     y += vector.y;
+    vector.rotate(rotation);
     life--;
   }
   
